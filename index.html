@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aday Memur Quiz Uygulaması</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div id="main-menu">
+            <h1>Aday Memur Quiz Uygulaması</h1>
+            <p>Quiz yapmak istediğiniz seçenekleri belirleyin:</p>
+
+            <div class="selection-options-container">
+                <div class="selection-section half-width">
+                    <h2>Konular</h2>
+                    <!-- Sadece Yeni Aday Memur Konuları -->
+                    <label><input type="checkbox" class="file-checkbox" value="Ataturk-Tarih"> Atatürk İlkeleri ve İnkılap Tarihi</label><br>
+                    <label><input type="checkbox" class="file-checkbox" value="TC-Anayasasi"> T.C. Anayasası</label><br>
+                    <label><input type="checkbox" class="file-checkbox" value="Devlet-Teskilati"> Devlet Teşkilatı</label><br>
+                    <label><input type="checkbox" class="file-checkbox" value="DMK-657"> 657 Sayılı Devlet Memurları Kanunu</label><br>
+                    <label><input type="checkbox" class="file-checkbox" value="Yazisma-Dosyalama"> Yazışma - Dosyalama Usulleri</label><br>
+                    <label><input type="checkbox" class="file-checkbox" value="Devlet-Mali"> Devlet Malını Koruma ve Tasarruf</label><br>
+                    <label><input type="checkbox" class="file-checkbox" value="Halkla-Iliskiler"> Halkla İlişkiler</label><br>
+                    <label><input type="checkbox" class="file-checkbox" value="Gizlilik"> Gizlilik ve Önemi</label><br>
+                    <label><input type="checkbox" class="file-checkbox" value="Milli-Guvenlik"> Millî Güvenlik Bilgileri</label><br>
+                    <label><input type="checkbox" class="file-checkbox" value="Haberlesme"> Haberleşme</label><br>
+                    <label><input type="checkbox" class="file-checkbox" value="Turkce-Dil"> Türkçe Dil Bilgisi Kuralları</label><br>
+                    <label><input type="checkbox" class="file-checkbox" value="Insan-Haklari"> İnsan Hakları</label><br>
+                </div>
+
+                <div class="selection-section half-width">
+                    <h2>Soru Aralığı</h2>
+                    <label><input type="radio" name="question-range" value="all" checked> Tüm Sorular</label><br>
+                    <label><input type="radio" name="question-range" value="1-25"> 1-25 Arası</label><br>
+                    <label><input type="radio" name="question-range" value="26-50"> 26-50 Arası</label><br>
+                    <label><input type="radio" name="question-range" value="51-75"> 51-75 Arası</label><br>
+                    <label><input type="radio" name="question-range" value="76+"> 76 ve Sonrası</label>
+                </div>
+            </div>
+
+            <div class="selection-section">
+                <h2>Quiz Modu</h2>
+                <label><input type="radio" name="quiz-mode" value="once" checked> 1- Rastgele - Tüm sorular sadece bir kez sorulacak</label><br>
+                <label><input type="radio" name="quiz-mode" value="repeatWrong"> 2- Rastgele - Tüm sorular 1 defa (yanlış yapılanlar tekrar sorulacak)</label><br>
+                <label><input type="radio" name="quiz-mode" value="infinite"> 3- Rastgele - Sonsuz Döngü</label>
+            </div>
+
+            <button id="start-quiz-btn">Quize Başla</button>
+            <button id="review-wrong-btn" style="display: none;">Yanlış Yapılanları Tekrar Çöz</button>
+
+            <div id="wrong-answers-summary" class="wrong-summary" style="display: none;">
+                <h3>Yanlış Yapılan Sorular (<span id="wrong-count">0</span>)</h3>
+                <button id="clear-wrong-btn" class="clear-button">Temizle</button>
+                <ul id="wrong-answers-list">
+                    <!-- Yanlış yapılan sorular buraya JavaScript tarafından eklenecek -->
+                </ul>
+            </div>
+        </div>
+
+        <div id="quiz-area" style="display: none;">
+            <div id="question-counter">Soru: <span id="current-q"></span> / <span id="total-q"></span></div>
+            <div id="question-text"></div>
+            <div id="options-container">
+                <!-- Şık butonları buraya JavaScript tarafından eklenecek -->
+            </div>
+            <div id="feedback"></div>
+            <div id="explanation" style="display: none;"></div>
+            <button id="next-question-btn" style="display: none;">Sonraki Soru</button>
+            <button id="back-to-menu-btn">Ana Menüye Dön</button>
+        </div>
+
+         <div id="end-screen" style="display: none;">
+            <h2>Quiz Tamamlandı!</h2>
+            <p id="final-score"></p>
+            <button id="restart-from-end-btn">Yeni Quize Başla</button>
+            <button id="back-to-menu-from-end-btn">Ana Menüye Dön</button>
+         </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
